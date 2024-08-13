@@ -1,4 +1,4 @@
-import '../css-google/bottom.css'
+import './bottom.css'
 
 export default function footerContainer() {
     return (

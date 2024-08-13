@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState ,useRef } from 'react'
 import './navigation.css'
 import ninePointImg from '../../img/img-google/ninePoint.png'
 import app1 from '../../img/img-google/app1.png'
@@ -10,12 +10,41 @@ import app5 from '../../img/img-google/app5.png'
 import app6 from '../../img/img-google/app6.png'
 //参数类型的声明，结合typescript再写吧我觉得
 // eslint-disable-next-line react/prop-types 
-export default function NavContent({ ninePointClikeOrNot, ninePoint, dialog }) {
+export default function NavContent() {
   // eslint-disable-next-line no-unused-vars
   const [serverUrl, setServerUrl] = useState(
     'http://localhost:8080/pages/back/goods/getGoods'
   )
   const [dataResult, setDataResult] = useState([])
+  const ninePoint = useRef(null)
+  const dialog = useRef(null) 
+  const [ninePointClickOrNot, setNinePointClickOrNot] = useState(false)
+
+  useEffect(()=>{
+    const handleNinePointClick=(event)=>{
+      if(ninePoint.current.contains(event.target)){
+        setNinePointClickOrNot(ninePointClickOrNot=>!ninePointClickOrNot );
+      }
+      else if(dialog.current.contains(event.target)){
+        console.log("dialog内点击,不关闭")
+      }
+      else{
+        console.log("点击与抽屉无关，关闭")
+        setNinePointClickOrNot(false);
+      }
+      // if(dialog.current.contains(event.target)){
+      //   console.log("dialog内点击,不关闭")
+      // }else{
+      //   if(ninePoint.current.contains(event.target)){
+      //     setNinePointClickOrNot( !ninePointClickOrNot );
+      //   }else{
+      //     setNinePointClickOrNot(false);
+      //   }
+      // }
+    }
+    document.addEventListener('click',handleNinePointClick)
+    return ()=>{document.removeEventListener('click',handleNinePointClick)}
+  },[])
 
   useEffect(() => {
     fetch('http://localhost:8080/pages/back/goods/getGoods')
@@ -29,6 +58,8 @@ export default function NavContent({ ninePointClikeOrNot, ninePoint, dialog }) {
       })
   }, [serverUrl])
 
+
+  console.log("ninePointClickOrNot",ninePointClickOrNot)
   return (
     <nav className="navigation__nav">
       <a className="navigation__nav--img" href="/#" alt="">
@@ -49,13 +80,13 @@ export default function NavContent({ ninePointClikeOrNot, ninePoint, dialog }) {
         ref={dialog}
         id="navigation__nav__dialog"
         className="navigation__nav__dialog"
-        style={{ display: ninePointClikeOrNot ? 'block' : 'none' }}
+        style={{ display: ninePointClickOrNot ? 'block' : 'none' }}
       >
         <div
           id="navigation__nav__dialog--display"
           className="navigation__nav__dialog--display"
         >
-          {ninePointClikeOrNot ? dataResultDisplay(dataResult) : null}
+          {ninePointClickOrNot ? dataResultDisplay(dataResult) : null}
         </div>
       </div>
       <a className="navigation__nav--login__a navigation__nav--login">

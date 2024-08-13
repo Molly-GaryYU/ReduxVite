@@ -179,7 +179,7 @@
   height: 32px;
 }
 
-.diaplay--none {
+.display--none {
   display: none;
 }
 
@@ -196,7 +196,7 @@
   padding-right: 8px;
 }
 .search--area__form--data--row__span {
-  margin-left: 14px;
+  margin-left: 11px;
 }
 .search--area__form--data--row__span__none-img {
   margin-left: 10px;
