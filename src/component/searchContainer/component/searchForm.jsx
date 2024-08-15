@@ -1,20 +1,21 @@
 /* eslint-disable react/prop-types */
 import SearchAreaFormTop from  './searchAreaFormTop'
 import SearchAreaFormData from './searchAreaFormData'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 const SearchForm = () => {
-    const [hoverInput,setHoverInput]=useState(false);
-    const [inputOrNot,setInputOrNot]=useState(false);
-    const [focusRightNow,setFocusRightNow]=useState(false);
+    const hoverInput =useSelector(state => state.hoverInput)
+    const focusRightNow=useSelector(state=>state.focusRightNow)
     const searchFrameElem=useRef(null);
+    const dispatch=useDispatch();
     useEffect(()=>{
         const handleSearchClick=(event)=>{
           if(searchFrameElem.current.contains(event.target)){
-            setFocusRightNow(true);
+            dispatch({type:'CHANGE_FOCUS_RIGHT_NOW_TO_TRUE'})
           }else{
-            setInputOrNot(false);
-            setFocusRightNow(false);
-            setHoverInput(false);
+            dispatch({type:'CHANGE_INPUT_OR_NOT_TO_FALSE'})
+            dispatch({type:'CHANGE_FOCUS_RIGHT_NOW_TO_FALSE'})
+            dispatch({type:'CHANGE_HOVER_INPUT_TO_FALSE'})
         }
     }
         document.addEventListener('mousedown',handleSearchClick);
@@ -33,26 +34,19 @@ const SearchForm = () => {
                 if (focusRightNow) {
                     console.log('MouseLeave do nothing')
                 } else {
-                    setHoverInput(false)
+                    dispatch({type:'CHANGE_HOVER_INPUT_TO_FALSE'})
                 }
             }}
             onMouseEnter={() => {
                 if (focusRightNow) {
                     console.log('MouseEnter do nothing')
                 } else {
-                    setHoverInput(true)
+                    dispatch({type:'CHANGE_HOVER_INPUT_TO_TRUE'})
                 }
             }}
         >
-            <SearchAreaFormTop
-                hoverInput={hoverInput}
-                setHoverInput={setHoverInput}
-                setFocusRightNow={setFocusRightNow}
-                setInputOrNot={setInputOrNot}
-            ></SearchAreaFormTop>
-            <SearchAreaFormData
-                inputOrNot={inputOrNot}
-            ></SearchAreaFormData>
+            <SearchAreaFormTop></SearchAreaFormTop>
+            <SearchAreaFormData ></SearchAreaFormData>
         </div>
     )
 }

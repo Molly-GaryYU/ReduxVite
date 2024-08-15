@@ -7,43 +7,12 @@ import NavContent from './component/Navigation/navigation.jsx'
 import SearchContent from './component/searchContainer/searchContent.jsx'
 
 const App = () => {
-   
-   
     return (
         <div
             className="main-frame"
-            id="main-frame"
-            // onClick={(event) => {
-            //     const serchFrameElemNode = serchFrameElem.current
-            //     const ninePointNode = ninePoint.current
-            //     const dialogNode = dialog.current
-            //     console.log(event.target)
-            //     if (serchFrameElemNode.contains(event.target)) {
-            //         console.log('点击在搜索框内')
-            //         setFoucsRightNow(true)
-            //         setNinePointClikeOrNot(false)
-            //     } else if (dialogNode.contains(event.target)) {
-            //         console.log('点击在抽屉1')
-            //         setFoucsRightNow(false)
-            //         setNinePointClikeOrNot(!ninePointClikeOrNot)
-            //         setInputOrNot(false)
-            //     } else if (ninePointNode.contains(event.target)) {
-            //         console.log('点击在抽屉按钮')
-            //         setFoucsRightNow(false)
-            //         setNinePointClikeOrNot(!ninePointClikeOrNot)
-            //         setInputOrNot(false)
-            //     } else {
-            //         console.log('页面点击')
-            //         setFoucsRightNow(false)
-            //         setInputFocusOrHover(false)
-            //         setNinePointClikeOrNot(false)
-            //         setInputOrNot(false)
-            //     }
-            // }}
-        >
+            id="main-frame" >
             <div className="navigation">
-                <NavContent
-                />
+                <NavContent/>
             </div>
             <div className="search">
                 <SearchContent/>
@@ -52,5 +21,4 @@ const App = () => {
         </div>
     )
 }
-
 export default App

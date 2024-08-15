@@ -1,10 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-import searchImg1 from'../../../img/img-google/serchImg1.png'
-import searchImg2 from'../../../img/img-google/searchImg2.png'
-import hoverSearchImg from'../../../img/img-google/hoverSearch.png'
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux'
 // 输入框检索内容
-function SearchAreaFormData({ inputOrNot }) {
+function SearchAreaFormData() {
+    const inputOrNot=useSelector(state=>state.inputOrNot);
+    const [searchData,setSearchData]=useState([]);
+    useEffect( ()=>{
+      ( async ()=>{
+            const module= await import('../staticData/data.jsx');
+            const data=module.default;
+            setSearchData(data);
+        })();
+        return 
+    },[])
+    console.log('searchData',searchData)
     return (
         <>
             <div
@@ -77,135 +87,3 @@ function SearchAreaFormData({ inputOrNot }) {
 
 
 export default SearchAreaFormData
-const searchData = [
-    {
-        name: '啊~',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-    {
-        name: '啊吗粽',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '音乐家',
-        introduceOrNot: true,
-    },
-    {
-        name: '啊朋友再见',
-        img: true,
-        imgComponent: (
-            <img
-                src={searchImg1}
-                className="search--area__form--data--row__img change"
-                alt=""
-            />
-        ),
-        introduce: '歌曲',
-        introduceOrNot: true,
-    },
-    {
-        name: '啊 meaning',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-    {
-        name: '啊!海军',
-        img: true,
-        imgComponent: (
-            <img
-                src={searchImg2}
-                className="search--area__form--data--row__img change"
-                alt=""
-            />
-        ),
-        introduce: '1969年的电影',
-        introduceOrNot: true,
-    },
-    {
-        name: '啊 表情包',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-    {
-        name: '啊哈加速器',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-    {
-        name: '啊哈',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-    {
-        name: '啊实打实',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-    {
-        name: '啊的变调',
-        img: false,
-        imgComponent: (
-            <img
-                src={hoverSearchImg}
-                className="search--area__form--data--row__nothing change"
-                alt=""
-            />
-        ),
-        introduce: '',
-        introduceOrNot: false,
-    },
-]

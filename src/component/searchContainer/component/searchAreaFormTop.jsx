@@ -6,19 +6,17 @@ import cameraImg from'../../../img/img-google/picture.png'
 import hoverMaiKeImg from '../../../img/img-google/hoverMaike.png'
 import hoverCameraImg from'../../../img/img-google/hoverPicture.png'
 import hoverSearchImg from'../../../img/img-google/hoverSearch.png'
+import { useDispatch,useSelector} from 'react-redux'
 // 输入框
-function SearchAreaFormTop({
-    hoverInput,
-    setHoverInput,
-    setFocusRightNow,
-    setInputOrNot,
-}) {
+function SearchAreaFormTop() {
+    const hoverInput =useSelector(state=>state.hoverInput)
+    const dispatch=useDispatch();
     const handelInputValue=(event)=>{
         if(event.target.value){
             console.log("input非空")
-            setInputOrNot(true);
+            dispatch({type:'CHANGE_INPUT_OR_NOT_TO_TRUE'})
         }else{
-            setInputOrNot(false);
+            dispatch({type:'CHANGE_INPUT_OR_NOT_TO_FALSE'})
         }
     }
     return (
@@ -37,8 +35,8 @@ function SearchAreaFormTop({
                                 : 'search--area__form__input'
                         }
                         onFocus={() => {
-                            setFocusRightNow(true)
-                            setHoverInput(true)
+                            dispatch({type:'CHANGE_FOCUS_RIGHT_NOW_TO_TRUE'})
+                            dispatch({type:'CHANGE_HOVER_INPUT_TO_TRUE'})
                         }}
                         onChange={handelInputValue}
                     />
