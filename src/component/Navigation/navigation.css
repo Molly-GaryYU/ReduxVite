@@ -58,7 +58,7 @@
 .navigation__nav__dialog {
   position: fixed;
   top: 60px;
-  left: 70%;
+  right: 2%;
   z-index: 5;
   width: 350px;
   height: 70%;
@@ -72,19 +72,7 @@
   padding: 3px 10px 14px;
 }
 
-.navigation__nav__dialog--display--type--box {
-  height: 84px;
-  width: 84px;
-  cursor: pointer;
-  color: #c4c7c5;
-  text-align: center;
-  text-decoration: none;
-  font-family: Helvetica, Arial, sans-serif;
-  /* margin: 10px 8px; */
-  border-radius: 10%;
-  padding: 10px 11px;
-  
-}
+
 .navigation__nav__dialog--display--type--box__div {
   width: 100%;
   align-items: center;
@@ -97,18 +85,7 @@
 .navigation__nav__dialog--display--type--box:hover {
   background-color: #202124;
 }
-.navigation__nav__dialog--display {
-  overflow-y: scroll;
-  max-height: 500px;
-  min-height: 250px;
-  width: 328px;
-  height: 100%;
-  border-radius: 20px 0px 0px 20px;
-  box-sizing: border-box;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  margin-left: 0px;
-}
+
 /* 必须设置否则不会所有滚动条伪类不会生效 */
 /* 整个滚动条 */
 .navigation__nav__dialog--display::-webkit-scrollbar {
@@ -118,10 +95,9 @@
 }
 /* 轨道 */
 ::-webkit-scrollbar-track {
-  height: 50% ;
-  display: none;
   padding-top: 20px;
-  margin-top: 20px;
+  margin-top: 38px;
+  max-height: 30%;
 }
 /* 箭头按钮 */
 ::-webkit-scrollbar-button {
@@ -132,15 +108,68 @@
   border-radius: 10px;
   background-color: rgb(78, 78, 78);
   padding-top: 20px;
-  margin-top: 20px;
 }
 .navigation__nav__dialog--display--type--child {
-  padding-top: 30px;
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .navigation__nav__dialog--display--type {
   background-color: #1a1a1b;
   margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.navigation__nav__dialog--display--type--box {
+  height: 84px;
+  width: 84px;
+  cursor: pointer;
+  color: #c4c7c5;
+  text-align: center;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+  border-radius: 10%;
+  padding: 5px 5px;
+}
+.navigation__nav__dialog--display {
+  overflow-y: scroll;
+  max-height: 500px;
+  min-height: 250px;
+  width: 340px;
+  height: 100%;
+  border-radius: 20px 20px 20px 20px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+}
+
+.navigation__nav__dialog--display--type--first {
+  background-color: #1a1a1b;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+}
+.navigation__nav__dialog--display--type--end {
+  background-color: #1a1a1b;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius:0 0 20px 20px;
+}
+.navigation__nav__dialog__button{
+  border-radius: 100px;
+  border: 1px solid;
+  border-color: #8e918f;
+  background: none;
+  box-sizing: border-box;
+  color: #a8c7fa;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  text-align: center;
+  line-height: 18px;
+  display: flex;
+  margin: 30px auto;
 }

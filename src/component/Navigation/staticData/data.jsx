@@ -128,6 +128,17 @@ const moreData = [
         ),
         id: 10,
       },
+      {
+        name: '账号',
+        imgComponent: (
+          <img
+            src={app1}
+            className="navigation__nav__dialog--display--type--box__img"
+            alt=""
+          />
+        ),
+        id: 0,
+      },
     ],
     [
       {
@@ -261,17 +272,6 @@ const moreData = [
           />
         ),
         id: 22,
-      },
-      {
-        name: 'Gemail',
-        imgComponent: (
-          <img
-            src={app2}
-            className="navigation__nav__dialog--display--type--box__img"
-            alt=""
-          />
-        ),
-        id: 23,
       },
     ],
   ]

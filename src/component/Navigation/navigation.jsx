@@ -74,6 +74,7 @@ export default function NavContent() {
           className="navigation__nav__dialog--display"
         >
           {ninePointClickOrNot ? dataResultDisplay(dataResult) : null}
+          <button className='navigation__nav__dialog__button'>更多Google应用/产品</button>
         </div>
       </div>
       <a className="navigation__nav--login__a navigation__nav--login">
@@ -84,8 +85,14 @@ export default function NavContent() {
 }
 const dataResultDisplay = (dataResult) => {
   return dataResult.map((itemBlock, index) => {
+    let classForType
+    if(index==0){
+      classForType='navigation__nav__dialog--display--type--first' 
+    }else{
+      classForType='navigation__nav__dialog--display--type--end' 
+    }
     return (
-      <div className="navigation__nav__dialog--display--type" key={index}>
+      <div className={classForType} key={index}>
         <div className="navigation__nav__dialog--display--type--child">
           {itemBlock.map(({ name, imgComponent, id }) => {
             return (
