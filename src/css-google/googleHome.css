@@ -8,3 +8,7 @@
 .bodyStyle{
   margin: 0;
 }
+
+:root{
+  background-color: #202124;
+}

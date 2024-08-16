@@ -7,16 +7,21 @@ import hoverMaiKeImg from '../../../img/img-google/hoverMaike.png'
 import hoverCameraImg from'../../../img/img-google/hoverPicture.png'
 import hoverSearchImg from'../../../img/img-google/hoverSearch.png'
 import { useDispatch,useSelector} from 'react-redux'
+import deleteImg2 from '../../../img/img-google/delete2.png'
+import { useState } from 'react'
 // 输入框
 function SearchAreaFormTop() {
     const hoverInput =useSelector(state=>state.hoverInput)
+    const [inputValueIsNull,setInputValueIsNull]=useState(false)
     const dispatch=useDispatch();
     const handelInputValue=(event)=>{
         if(event.target.value){
             console.log("input非空")
+            setInputValueIsNull(true)
             dispatch({type:'CHANGE_INPUT_OR_NOT_TO_TRUE'})
         }else{
             dispatch({type:'CHANGE_INPUT_OR_NOT_TO_FALSE'})
+            setInputValueIsNull(false)
         }
     }
     return (
@@ -24,7 +29,7 @@ function SearchAreaFormTop() {
             <div className="search--area__form--top__div">
                 <div className="search--area__form--left ">
                     <img
-                        className="search--area__form--left__img"
+                        className= {hoverInput ?'search--area__form--left__img--hover':'search--area__form--left__img'}
                         src={hoverInput ? hoverSearchImg : searchImg}
                         alt=""
                     />
@@ -43,12 +48,12 @@ function SearchAreaFormTop() {
                 </div>
                 <div className="search--area__form--right">
                     <img
-                        className="search--area__form--right--hidden search--area__form--right--hide"
-                        src={deleteImg}
+                        className={inputValueIsNull?(hoverInput? "search--area__form--right--hidden--img" :"search--area__form--right--hidden" ) :"search--area__form--right--hidden search--area__form--right--hide"} 
+                        src= {hoverInput?deleteImg:deleteImg2} 
                         alt=""
                     />
                     <span
-                        className="search--area__form--right--line search--area__form--right--hide"
+                        className={inputValueIsNull?(hoverInput? "search--area__form--right--line--hover" :"search--area__form--right--line" ):"search--area__form--right--line search--area__form--right--hide"} 
                         id="search--area__form--right--line"
                     ></span>
                     <img
@@ -63,7 +68,7 @@ function SearchAreaFormTop() {
                     <img
                         className={
                             hoverInput
-                                ? 'search--area__form--right--picture search--area__form--right--picture--hover'
+                                ? ' search--area__form--right--picture--hover'
                                 : 'search--area__form--right--picture'
                         }
                         src={hoverInput ? hoverCameraImg : cameraImg}

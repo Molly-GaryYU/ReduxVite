@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import SearchAreaFormTop from  './searchAreaFormTop'
 import SearchAreaFormData from './searchAreaFormData'
+import SearchButton from'./searchButton.jsx'
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 const SearchForm = () => {
     const hoverInput =useSelector(state => state.hoverInput)
     const focusRightNow=useSelector(state=>state.focusRightNow)
+    const inputOrNot=useSelector(state=>state.inputOrNot);
     const searchFrameElem=useRef(null);
     const dispatch=useDispatch();
     useEffect(()=>{
@@ -22,7 +24,7 @@ const SearchForm = () => {
         return ()=>{document.removeEventListener('mousedown',handleSearchClick);}
     },[]);
     return (
-        <div
+          <div
             ref={searchFrameElem}
             id="serch--frame"
             className={
@@ -31,22 +33,20 @@ const SearchForm = () => {
                     : 'search--area__form'
             }
             onMouseLeave={() => {
-                if (focusRightNow) {
-                    console.log('MouseLeave do nothing')
-                } else {
+                if (!focusRightNow){
                     dispatch({type:'CHANGE_HOVER_INPUT_TO_FALSE'})
                 }
             }}
             onMouseEnter={() => {
-                if (focusRightNow) {
-                    console.log('MouseEnter do nothing')
-                } else {
+                if (!focusRightNow) {
                     dispatch({type:'CHANGE_HOVER_INPUT_TO_TRUE'})
                 }
             }}
         >
-            <SearchAreaFormTop></SearchAreaFormTop>
-            <SearchAreaFormData ></SearchAreaFormData>
+            <SearchAreaFormTop/>
+            <SearchAreaFormData/>
+             {inputOrNot?<SearchButton/>:null}
+             {inputOrNot?<div className='search--area__form--data--bottom'>举报不当的联想查询</div>:null}
         </div>
     )
 }
