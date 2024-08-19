@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import './navigation.css';
+import './index/sass/index.scss';
 import ninePointImg from '../../img/img-google/ninePoint.png';
 import React from 'react';
 
@@ -40,7 +40,7 @@ export default function NavContent() {
         console.log('fetch in', dataResult);
       })
       .catch(() => {
-        import('./staticData/data.jsx')
+        import('./staticData/data.js')
           .then((data) => {
             const moreData: dataResultType =
               data.default as unknown as dataResultType;
@@ -53,36 +53,22 @@ export default function NavContent() {
 
   return (
     <div className="navigation">
-      <nav className="navigation__nav">
-        <a className="navigation__nav--img" href="/#">
+      <nav className="item">
+        <a className="picture" href="/#">
           图片
         </a>
-        <div className="navigation__nav--more " id="nine-point" ref={ninePoint}>
-          <img
-            className="navigation__nav--more__img"
-            src={ninePointImg}
-            alt=""
-          />
+        <div className="more" ref={ninePoint}>
+          <img className="morePicture" src={ninePointImg} alt="" />
         </div>
         {ninePointClickOrNot ? (
-          <div
-            ref={dialog}
-            id="navigation__nav__dialog"
-            className="navigation__nav__dialog"
-          >
-            <div
-              id="navigation__nav__dialog--display"
-              className="navigation__nav__dialog--display"
-            >
+          <div ref={dialog} className="dialogItem">
+            <div className="display">
               {dataResultDisplay(dataResult)}
-              <button className="navigation__nav__dialog__button">
-                更多Google应用/产品
-              </button>
+              <button className="buttonItem">更多Google应用/产品</button>
             </div>
           </div>
         ) : null}
-
-        <a className="navigation__nav--login__a navigation__nav--login">登录</a>
+        <a className="login">登录</a>
       </nav>
     </div>
   );
@@ -91,23 +77,17 @@ const dataResultDisplay = (dataResult) => {
   return dataResult.map((itemBlock, index) => {
     let classForType;
     if (index == 0) {
-      classForType = 'navigation__nav__dialog--display--type--first';
+      classForType = 'first';
     } else {
-      classForType = 'navigation__nav__dialog--display--type--end';
+      classForType = 'end';
     }
     return (
       <div className={classForType} key={index}>
-        <div className="navigation__nav__dialog--display--type--child">
+        <div className="child">
           {itemBlock.map(({ name, imgComponent, id }) => {
             return (
-              <a
-                className="navigation__nav__dialog--display--type--box"
-                href="/#"
-                key={id}
-              >
-                <div className="navigation__nav__dialog--display--type--box__div">
-                  {imgComponent}
-                </div>
+              <a className="box" href="/#" key={id}>
+                <div className="divItem">{imgComponent}</div>
                 <span> {name}</span>
               </a>
             );

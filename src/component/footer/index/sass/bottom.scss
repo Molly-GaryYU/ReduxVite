@@ -1,0 +1,27 @@
+.bottom {
+  position: fixed;
+  z-index: 3;
+  height: 49px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1a1a1b;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #e8e8e8;
+  .left {
+    display: flex;
+    margin-left: 20px;
+  }
+  .right {
+    display: flex;
+    margin-right: 20px;
+  }
+  .textStyle {
+    padding: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+  }
+}

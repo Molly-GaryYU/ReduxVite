@@ -34,12 +34,7 @@ const SearchForm = () => {
   return (
     <div
       ref={searchFrameElem}
-      id="serch--frame"
-      className={
-        hoverInput
-          ? 'search--area__form search--area__form--background border--none'
-          : 'search--area__form'
-      }
+      className={hoverInput ? 'formItem formBackground' : 'formItem'}
       onMouseLeave={() => {
         if (!focusRightNow) {
           dispatch({ type: 'CHANGE_HOVER_INPUT_TO_FALSE' });
@@ -55,9 +50,7 @@ const SearchForm = () => {
       <SearchAreaFormData />
       {inputOrNot ? <SearchButton /> : null}
       {inputOrNot ? (
-        <div className="search--area__form--data--bottom">
-          举报不当的联想查询
-        </div>
+        <div className="searchBottom">举报不当的联想查询</div>
       ) : null}
     </div>
   );

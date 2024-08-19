@@ -37,13 +37,13 @@ const SearchButton = () => {
     };
   }, []);
   return (
-    <div className="search--button">
+    <div className="searchButtonItem">
       <button
         ref={googleButton}
         className={
           hoverGoogleButton
-            ? 'button--background search--button__button search--button--search button-border-hover'
-            : 'button--background search--button__button search--button--search button-border'
+            ? 'searchButtonBackground searchButton googleButton buttonBorderHover'
+            : 'searchButtonBackground searchButton googleButton buttonBorder'
         }
         onMouseLeave={() => {
           if (!lockByGoogle) {
@@ -72,8 +72,8 @@ const SearchButton = () => {
         }}
         className={
           hoverLuckyButton
-            ? 'button--background search--button__button search--button--lucky button-border-hover'
-            : 'button--background search--button__button search--button--lucky button-border'
+            ? 'searchButtonBackground searchButton luckyButton buttonBorderHover'
+            : 'searchButtonBackground searchButton luckyButton buttonBorder'
         }
       >
         手气不错
