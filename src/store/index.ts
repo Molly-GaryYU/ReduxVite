@@ -1,7 +1,15 @@
 import { createStore } from 'redux';
-import reducer from './reducer/index.ts'; // 导入 reducer
+import reducer from './reducer/index'; // 导入 reducer
 
-const initialState = {
+export interface initialStateType {
+    focusRightNow: boolean,
+    inputOrNot: boolean,
+    ninePointClickOrNot: boolean,
+    inputFocusOrHover: boolean,
+    hoverInput: boolean,
+}
+
+const initialState: initialStateType = {
     focusRightNow: false,
     inputOrNot: false,
     ninePointClickOrNot: false,

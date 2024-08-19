@@ -1,7 +1,8 @@
 import logo from '../../img/img-google/logo.png';
-import SearchForm from './component/searchForm.jsx';
-import SearchButton from './component/searchButton.jsx';
+import SearchForm from './component/searchForm';
+import SearchButton from './component/searchButton';
 import './search.css';
+import React from 'react';
 const SearchContent = () => {
   return (
     <div className="search">
