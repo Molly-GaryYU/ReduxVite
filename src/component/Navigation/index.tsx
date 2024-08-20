@@ -7,8 +7,8 @@ export default function NavContent() {
   const serverUrl = 'http://localhost:8080/pages/back/goods/getGoods';
   //这一步不知道为什么state默认值不能写二维数组[][]只能写一维数组[]
   const [dataResult, setDataResult] = useState<dataResultType[][] | [][]>([]);
-  const ninePoint = useRef(null);
-  const dialog = useRef(null);
+  const ninePoint = useRef<HTMLDivElement>(null);
+  const dialog = useRef<HTMLDivElement>(null);
   const [ninePointClickOrNot, setNinePointClickOrNot] =
     useState<boolean>(false);
   interface dataResultType {
@@ -83,13 +83,8 @@ export default function NavContent() {
         图片
       </a>
       {/* 这里套两层是因为需要加入悬停时的背景，border-radius: 100px;写在img标签会影响图片形状 */}
-      <div className="more">
-        <img
-          ref={ninePoint}
-          className=" morePicture"
-          src={ninePointImg}
-          alt=""
-        />
+      <div ref={ninePoint} className="more">
+        <img className=" morePicture" src={ninePointImg} alt="" />
       </div>
       {ninePointClickOrNot ? (
         <div ref={dialog} className="dialogItem">
