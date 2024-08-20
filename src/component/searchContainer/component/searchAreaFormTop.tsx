@@ -8,24 +8,31 @@ import hoverCameraImg from '../../../img/img-google/hoverPicture.png';
 import hoverSearchImg from '../../../img/img-google/hoverSearch.png';
 import { useDispatch, useSelector } from 'react-redux';
 import deleteImg2 from '../../../img/img-google/delete2.png';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import React from 'react';
 import { TypedUseSelectorHook } from 'react-redux';
 import { initialStateType } from '../../../store/index';
 // 输入框
 const SearchAreaFormTop: React.FC = () => {
+  const inputElement = useRef<HTMLInputElement | null>(null);
   const useTypedSelector: TypedUseSelectorHook<initialStateType> = useSelector;
   const hoverInput: Boolean = useTypedSelector((state) => state.hoverInput);
   const [inputValueIsNull, setInputValueIsNull] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const handelInputValue = (event) => {
-    if (event.target.value) {
+  const handelInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target: HTMLInputElement = event.target as HTMLInputElement;
+    if (target.value) {
       setInputValueIsNull(true);
       dispatch({ type: 'CHANGE_INPUT_OR_NOT_TO_TRUE' });
     } else {
       dispatch({ type: 'CHANGE_INPUT_OR_NOT_TO_FALSE' });
       setInputValueIsNull(false);
     }
+  };
+  const handelCleanInput = () => {
+    inputElement.current.value = '';
+    setInputValueIsNull(false);
+    dispatch({ type: 'CHANGE_INPUT_OR_NOT_TO_FALSE' });
   };
   return (
     <div className="top">
@@ -37,6 +44,7 @@ const SearchAreaFormTop: React.FC = () => {
             alt=""
           />
           <input
+            ref={inputElement}
             className={hoverInput ? 'inputHover inputItem ' : 'inputItem'}
             onFocus={() => {
               dispatch({ type: 'CHANGE_FOCUS_RIGHT_NOW_TO_TRUE' });
@@ -56,6 +64,7 @@ const SearchAreaFormTop: React.FC = () => {
             }
             src={hoverInput ? deleteImg : deleteImg2}
             alt=""
+            onClick={handelCleanInput}
           />
           <span
             className={

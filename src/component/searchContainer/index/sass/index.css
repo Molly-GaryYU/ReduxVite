@@ -211,6 +211,7 @@
   width: 16px;
   height: 16px;
   margin-left: 2px;
+  cursor: pointer;
 }
 
 .search .searchArea .formItem .top .divItem .right .hiddenImg {
@@ -218,6 +219,7 @@
   height: 16px;
   margin-top: 1px;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .search .searchArea .formItem .top .divItem .right .lineHover {

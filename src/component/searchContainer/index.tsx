@@ -3,7 +3,7 @@ import SearchForm from './component/searchForm';
 import SearchButton from './component/searchButton';
 import './index/sass/index.scss';
 import React from 'react';
-const SearchContent = () => {
+const SearchContent: React.FC = () => {
   return (
     <div className="search">
       <img className="imgItem" src={logo} alt="" />
