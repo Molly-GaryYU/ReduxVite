@@ -8,12 +8,12 @@
 }
 
 .navigation .picture {
-  font: 13px/27px Roboto, Arial, sans-serif;
+  font: 13px Roboto, Arial, sans-serif;
   text-decoration: none;
   color: white;
   margin-right: 15px;
   margin-top: 4px;
-  height: 28px;
+  height: 17px;
 }
 
 .navigation .picture:hover {

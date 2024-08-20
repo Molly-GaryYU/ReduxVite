@@ -1,7 +1,7 @@
 .bottom {
   position: fixed;
   z-index: 3;
-  height: 49px;
+
   display: flex;
   justify-content: space-between;
   background-color: #1a1a1b;
@@ -12,16 +12,25 @@
   .left {
     display: flex;
     margin-left: 20px;
+    height: 49px;
   }
   .right {
     display: flex;
     margin-right: 20px;
+    height: 49px;
   }
   .textStyle {
-    padding: 15px;
+    padding-top: 15px;
+    margin: 0px 15px;
     text-decoration: none;
     cursor: pointer;
     font-size: 14px;
     font-family: Arial, sans-serif;
+    &:hover {
+      border-bottom: 1px white solid;
+      box-sizing: border-box;
+      display: block;
+      height: 32px;
+    }
   }
 }
