@@ -5,7 +5,8 @@ import React from 'react';
 
 export default function NavContent() {
   const serverUrl = 'http://localhost:8080/pages/back/goods/getGoods';
-  const [dataResult, setDataResult] = useState<dataResultType | []>([]);
+  //这一步不知道为什么state默认值不能写二维数组[][]只能写一维数组[]
+  const [dataResult, setDataResult] = useState<dataResultType[][] | [][]>([]);
   const ninePoint = useRef(null);
   const dialog = useRef(null);
   const [ninePointClickOrNot, setNinePointClickOrNot] =
@@ -36,65 +37,69 @@ export default function NavContent() {
   useEffect(() => {
     fetch('http://localhost:8080/pages/back/goods/getGoods')
       .then((response) => response.json())
-      .then((result: dataResultType) => {
+      .then((result: dataResultType[][]) => {
         setDataResult(result);
         console.log('fetch in', dataResult);
       })
       .catch(() => {
         import('./staticData/data.js')
           .then((data) => {
-            const moreData: dataResultType =
-              data.default as unknown as dataResultType;
+            const moreData: dataResultType[][] =
+              data.default as unknown as dataResultType[][];
+            //这一步是有意义的，因为两d.ts的impComponent和dataResultType不一致；算是为了熟悉强转
             setDataResult(moreData);
           })
           .catch();
-        // then()获取的数据无法在then外请求
       });
   }, [serverUrl]);
-
+  //遍历请求的App内容
+  const dataResultDisplay = () => {
+    return dataResult.map((itemBlock, index) => {
+      let classForType;
+      if (index == 0) {
+        classForType = 'first';
+      } else {
+        classForType = 'end';
+      }
+      return (
+        <div className={classForType} key={index}>
+          <div className="child">
+            {itemBlock.map(({ name, imgComponent, id }) => {
+              return (
+                <a className="box" href="/#" key={id}>
+                  <div className="divItem">{imgComponent}</div>
+                  <span> {name}</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      );
+    });
+  };
   return (
     <div className="navigation">
-      <nav className="item">
-        <a className="picture" href="/#">
-          图片
-        </a>
-        <div className="more" ref={ninePoint}>
-          <img className="morePicture" src={ninePointImg} alt="" />
-        </div>
-        {ninePointClickOrNot ? (
-          <div ref={dialog} className="dialogItem">
-            <div className="display">
-              {dataResultDisplay(dataResult)}
-              <button className="buttonItem">更多Google应用/产品</button>
-            </div>
+      <a className="picture" href="/#">
+        图片
+      </a>
+      {/* 这里套两层是因为需要加入悬停时的背景，border-radius: 100px;写在img标签会影响图片形状 */}
+      <div className="more">
+        <img
+          ref={ninePoint}
+          className=" morePicture"
+          src={ninePointImg}
+          alt=""
+        />
+      </div>
+      {ninePointClickOrNot ? (
+        <div ref={dialog} className="dialogItem">
+          <div className="display">
+            {dataResultDisplay()}
+            <button className="buttonItem">更多Google应用/产品</button>
           </div>
-        ) : null}
-        <a className="login">登录</a>
-      </nav>
+        </div>
+      ) : null}
+      <a className="login">登录</a>
     </div>
   );
 }
-const dataResultDisplay = (dataResult): JSX.Element => {
-  return dataResult.map((itemBlock, index) => {
-    let classForType;
-    if (index == 0) {
-      classForType = 'first';
-    } else {
-      classForType = 'end';
-    }
-    return (
-      <div className={classForType} key={index}>
-        <div className="child">
-          {itemBlock.map(({ name, imgComponent, id }) => {
-            return (
-              <a className="box" href="/#" key={id}>
-                <div className="divItem">{imgComponent}</div>
-                <span> {name}</span>
-              </a>
-            );
-          })}
-        </div>
-      </div>
-    );
-  });
-};

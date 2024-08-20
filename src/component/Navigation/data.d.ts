@@ -8,6 +8,6 @@ export interface DataItem {
 }
 
 declare module 'data.tsx' {
-  const value: DataItem[];
+  const value: DataItem[][];
   export default value;
 }
