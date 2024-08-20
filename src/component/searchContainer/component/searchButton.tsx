@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
 
 const SearchButton: React.FC = () => {
   const [lockByGoogle, setLockByGoogle] = useState<boolean>(false);
@@ -8,6 +9,21 @@ const SearchButton: React.FC = () => {
   const [hoverLuckyButton, setHoverLuckyButton] = useState<boolean>(false);
   const googleButton = useRef<HTMLButtonElement | null>(null);
   const luckyButton = useRef<HTMLButtonElement | null>(null);
+  const googleBtnClass = classNames({
+    searchButtonBackground: true,
+    searchButton: true,
+    googleButton: true,
+    buttonBorderHover: hoverGoogleButton,
+    buttonBorder: !hoverGoogleButton,
+  });
+  const luckyBtnClass = classNames({
+    searchButtonBackground: true,
+    searchButton: true,
+    luckyButton: true,
+    buttonBorderHover: hoverGoogleButton,
+    buttonBorder: !hoverGoogleButton,
+  });
+
   useEffect(() => {
     const handelGoogleButton = (event) => {
       if (googleButton.current.contains(event.target)) {
@@ -40,11 +56,7 @@ const SearchButton: React.FC = () => {
     <div className="searchButtonItem">
       <button
         ref={googleButton}
-        className={
-          hoverGoogleButton
-            ? 'searchButtonBackground searchButton googleButton buttonBorderHover'
-            : 'searchButtonBackground searchButton googleButton buttonBorder'
-        }
+        className={googleBtnClass}
         onMouseLeave={() => {
           if (!lockByGoogle) {
             console.log('googleButton hover');
@@ -70,11 +82,7 @@ const SearchButton: React.FC = () => {
           console.log('lockByLucky out');
           if (!lockByLucky) setHoverLuckyButton(false);
         }}
-        className={
-          hoverLuckyButton
-            ? 'searchButtonBackground searchButton luckyButton buttonBorderHover'
-            : 'searchButtonBackground searchButton luckyButton buttonBorder'
-        }
+        className={luckyBtnClass}
       >
         手气不错
       </button>
