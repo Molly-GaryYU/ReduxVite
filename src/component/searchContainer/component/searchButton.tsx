@@ -20,8 +20,8 @@ const SearchButton: React.FC = () => {
     searchButtonBackground: true,
     searchButton: true,
     luckyButton: true,
-    buttonBorderHover: hoverGoogleButton,
-    buttonBorder: !hoverGoogleButton,
+    buttonBorderHover: hoverLuckyButton,
+    buttonBorder: !hoverLuckyButton,
   });
 
   useEffect(() => {
