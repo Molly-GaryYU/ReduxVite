@@ -16,7 +16,7 @@ import { initialStateType } from '../../../store/index';
 const SearchAreaFormTop: React.FC = () => {
   const useTypedSelector: TypedUseSelectorHook<initialStateType> = useSelector;
   const hoverInput: Boolean = useTypedSelector((state) => state.hoverInput);
-  const [inputValueIsNull, setInputValueIsNull] = useState(false);
+  const [inputValueIsNull, setInputValueIsNull] = useState<boolean>(false);
   const dispatch = useDispatch();
   const handelInputValue = (event) => {
     if (event.target.value) {
@@ -63,12 +63,28 @@ const SearchAreaFormTop: React.FC = () => {
             }
           ></span>
           <img
-            className={hoverInput ? 'mikeHover' : 'mike'}
+            className={
+              inputValueIsNull
+                ? hoverInput
+                  ? 'InputMikeHover'
+                  : 'mike'
+                : hoverInput
+                  ? 'mikeHover'
+                  : 'mike'
+            }
             src={hoverInput ? hoverMaiKeImg : maiKeImg}
             alt=""
           />
           <img
-            className={hoverInput ? 'cameraHover' : 'camera'}
+            className={
+              inputValueIsNull
+                ? hoverInput
+                  ? 'InputCameraHover'
+                  : 'camera'
+                : hoverInput
+                  ? 'cameraHover'
+                  : 'camera'
+            }
             src={hoverInput ? hoverCameraImg : cameraImg}
             alt=""
           />

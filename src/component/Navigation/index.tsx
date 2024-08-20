@@ -8,7 +8,8 @@ export default function NavContent() {
   const [dataResult, setDataResult] = useState<dataResultType | []>([]);
   const ninePoint = useRef(null);
   const dialog = useRef(null);
-  const [ninePointClickOrNot, setNinePointClickOrNot] = useState(false);
+  const [ninePointClickOrNot, setNinePointClickOrNot] =
+    useState<boolean>(false);
   interface dataResultType {
     name: String;
     impComponent: JSX.Element;
@@ -73,7 +74,7 @@ export default function NavContent() {
     </div>
   );
 }
-const dataResultDisplay = (dataResult) => {
+const dataResultDisplay = (dataResult): JSX.Element => {
   return dataResult.map((itemBlock, index) => {
     let classForType;
     if (index == 0) {

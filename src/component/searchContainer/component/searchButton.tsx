@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-const SearchButton = () => {
-  const [lockByGoogle, setLockByGoogle] = useState(false);
-  const [lockByLucky, setLockByLucky] = useState(false);
-  const [hoverGoogleButton, setHoverGoogleButton] = useState(false);
-  const [hoverLuckyButton, setHoverLuckyButton] = useState(false);
-  const googleButton = useRef(null);
-  const luckyButton = useRef(null);
+const SearchButton: React.FC = () => {
+  const [lockByGoogle, setLockByGoogle] = useState<boolean>(false);
+  const [lockByLucky, setLockByLucky] = useState<boolean>(false);
+  const [hoverGoogleButton, setHoverGoogleButton] = useState<boolean>(false);
+  const [hoverLuckyButton, setHoverLuckyButton] = useState<boolean>(false);
+  const googleButton = useRef<HTMLButtonElement | null>(null);
+  const luckyButton = useRef<HTMLButtonElement | null>(null);
   useEffect(() => {
     const handelGoogleButton = (event) => {
       if (googleButton.current.contains(event.target)) {

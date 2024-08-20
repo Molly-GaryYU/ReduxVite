@@ -180,10 +180,24 @@
   margin-bottom: 1px;
 }
 
+.search .searchArea .formItem .top .divItem .right .InputMikeHover {
+  width: 15.2px;
+  height: 21px;
+  margin-right: 11px;
+  margin-bottom: 1px;
+}
+
 .search .searchArea .formItem .top .divItem .right .camera {
   width: 21.6px;
   height: 20px;
   margin-right: 14.5px;
+}
+
+.search .searchArea .formItem .top .divItem .right .InputCameraHover {
+  width: 20px;
+  height: 20px;
+  margin-right: 12.6px;
+  margin-bottom: 2px;
 }
 
 .search .searchArea .formItem .top .divItem .right .cameraHover {
@@ -265,6 +279,6 @@
 
 .search .searchArea .formBackground {
   background-color: #313335;
-  margin-top: 1px;
   border: none;
+  padding: 0.8px 0px;
 }
