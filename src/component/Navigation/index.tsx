@@ -46,7 +46,6 @@ export default function NavContent() {
           .then((data) => {
             const moreData: dataResultType[][] =
               data.default as unknown as dataResultType[][];
-            //这一步是有意义的，因为两d.ts的impComponent和dataResultType不一致；算是为了熟悉强转
             setDataResult(moreData);
           })
           .catch();
