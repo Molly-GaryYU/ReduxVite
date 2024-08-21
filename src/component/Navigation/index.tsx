@@ -2,20 +2,16 @@ import { useEffect, useState, useRef } from 'react';
 import './index/sass/index.scss';
 import ninePointImg from '../../img/img-google/ninePoint.png';
 import React from 'react';
-
+import { DataItem } from './data.d';
 export default function NavContent() {
   const serverUrl = 'http://localhost:8080/pages/back/goods/getGoods';
   //这一步不知道为什么state默认值不能写二维数组[][]只能写一维数组[]
-  const [dataResult, setDataResult] = useState<dataResultType[][] | [][]>([]);
+  const [dataResult, setDataResult] = useState<DataItem[][] | [][]>([]);
   const ninePoint = useRef<HTMLDivElement>(null);
   const dialog = useRef<HTMLDivElement>(null);
   const [ninePointClickOrNot, setNinePointClickOrNot] =
     useState<boolean>(false);
-  interface dataResultType {
-    name: String;
-    impComponent: JSX.Element;
-    id: number;
-  }
+
   //请求数据
   useEffect(() => {
     const handleNinePointClick = (event) => {
@@ -37,15 +33,14 @@ export default function NavContent() {
   useEffect(() => {
     fetch('http://localhost:8080/pages/back/goods/getGoods')
       .then((response) => response.json())
-      .then((result: dataResultType[][]) => {
+      .then((result: DataItem[][]) => {
         setDataResult(result);
         console.log('fetch in', dataResult);
       })
       .catch(() => {
         import('./staticData/data.js')
           .then((data) => {
-            const moreData: dataResultType[][] =
-              data.default as unknown as dataResultType[][];
+            const moreData: DataItem[][] = data.default;
             setDataResult(moreData);
           })
           .catch();
