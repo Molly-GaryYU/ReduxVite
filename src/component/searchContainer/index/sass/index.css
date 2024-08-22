@@ -4,8 +4,10 @@
 }
 
 .search .imgItem {
-  height: 100px;
+  width: 272.5px;
+  height: 92px;
   margin: 0 auto;
+  padding-right: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,11 +19,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 26px;
+  margin-top: 27px;
 }
 
 .search .searchArea .formItem {
-  width: 582px;
+  width: 584px;
   border: 1px solid #5f6368;
   border-radius: 30px;
   z-index: 4;
@@ -45,6 +47,7 @@
 .search .searchArea .formItem .inputHover {
   background-color: #313335;
   margin-top: 1px;
+  margin-left: 14px;
 }
 
 .search .searchArea .formItem .searchBottom {
@@ -122,13 +125,13 @@
 }
 
 .search .searchArea .formItem .top {
-  height: 46px;
+  height: 45px;
   width: 100%;
 }
 
 .search .searchArea .formItem .top .divItem {
   width: 582px;
-  height: 46px;
+  height: 45px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,18 +146,20 @@
 .search .searchArea .formItem .top .divItem .left .imgItem {
   width: 16px;
   height: 16px;
-  margin-left: 15px;
+  margin-left: 16px;
+  padding-bottom: 2px;
 }
 
 .search .searchArea .formItem .top .divItem .left .imgItemHover {
   width: 16px;
   height: 17px;
-  margin-left: 16px;
+  margin-left: 17px;
+  padding-bottom: 3px;
 }
 
 .search .searchArea .formItem .top .divItem .right {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   width: 22%;
 }
@@ -168,49 +173,50 @@
 }
 
 .search .searchArea .formItem .top .divItem .right .mike {
-  width: 38px;
-  height: 33px;
-  margin-right: 6px;
+  width: 37.5px;
+  height: 33.5px;
+  margin-right: 11px;
+  margin-bottom: 2px;
 }
 
 .search .searchArea .formItem .top .divItem .right .mikeHover {
-  width: 15.2px;
-  height: 21px;
-  margin-right: 12px;
-  margin-bottom: 1px;
+  width: 15px;
+  height: 21.5px;
+  margin-right: 22px;
+  margin-bottom: 3px;
 }
 
 .search .searchArea .formItem .top .divItem .right .InputMikeHover {
   width: 15.2px;
-  height: 21px;
-  margin-right: 11px;
-  margin-bottom: 1px;
+  height: 21.5px;
+  margin-right: 21.5px;
+  margin-bottom: 3px;
 }
 
 .search .searchArea .formItem .top .divItem .right .camera {
   width: 21.6px;
   height: 20px;
-  margin-right: 14.5px;
+  margin-right: 17px;
 }
 
 .search .searchArea .formItem .top .divItem .right .InputCameraHover {
   width: 20px;
   height: 20px;
-  margin-right: 12.6px;
+  margin-right: 17px;
   margin-bottom: 2px;
 }
 
 .search .searchArea .formItem .top .divItem .right .cameraHover {
   width: 20px;
   height: 20px;
-  margin-right: 11.5px;
+  margin-right: 17px;
   margin-bottom: 2px;
 }
 
 .search .searchArea .formItem .top .divItem .right .hidden {
   width: 16px;
   height: 16px;
-  margin-left: 2px;
+  margin-right: 16px;
   cursor: pointer;
 }
 
@@ -218,22 +224,25 @@
   width: 16px;
   height: 16px;
   margin-top: 1px;
-  margin-right: 4px;
+  margin-right: 16px;
+  margin-bottom: 2px;
   cursor: pointer;
 }
 
 .search .searchArea .formItem .top .divItem .right .lineHover {
   display: block;
   border-left: 1px solid #5f6368;
-  height: 28.6px;
-  margin-right: 8px;
+  height: 29px;
+  margin-right: 17px;
+  margin-bottom: 2px;
 }
 
 .search .searchArea .formItem .top .divItem .right .line {
   display: block;
   border-left: 1px solid #5f6368;
-  height: 28.6px;
-  margin-left: 9px;
+  height: 29px;
+  margin-right: 4.2px;
+  margin-bottom: 2px;
 }
 
 .search .searchArea .searchButtonItem {
@@ -283,4 +292,5 @@
   background-color: #313335;
   border: none;
   padding: 0.8px 0px;
+  border-radius: 25px;
 }

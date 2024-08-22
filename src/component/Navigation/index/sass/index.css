@@ -8,12 +8,13 @@
 }
 
 .navigation .picture {
-  font: 13px Roboto, Arial, sans-serif;
+  font-size: 13px;
+  font-family: Roboto, Arial, sans-serif;
   text-decoration: none;
   color: white;
-  margin-right: 15px;
-  margin-top: 4px;
+  margin-right: 16px;
   height: 17px;
+  margin-top: 2px;
 }
 
 .navigation .picture:hover {
@@ -22,14 +23,14 @@
 }
 
 .navigation .more {
-  margin-right: 14px;
   margin-top: 2px;
+  margin-right: 15px;
   display: flex;
   align-items: center;
   /* 垂直居中 */
   justify-content: center;
   height: 40px;
-  width: 40px;
+  width: 38px;
   cursor: pointer;
 }
 
@@ -150,8 +151,8 @@
   color: #001d35;
   background: #c2e7ff;
   border-radius: 30px;
-  padding: 12px 28.5px 12px 28.5px;
-  margin-right: 27px;
+  padding: 8px 28.5px 13px 28.5px;
+  margin-right: 26px;
   cursor: pointer;
 }
 
