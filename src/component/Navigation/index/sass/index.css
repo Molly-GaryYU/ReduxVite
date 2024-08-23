@@ -7,6 +7,21 @@
   align-items: center;
 }
 
+.navigation .gmail {
+  font-size: 13px;
+  font-family: Roboto, Arial, sans-serif;
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
+  height: 17px;
+  margin-top: 5px;
+}
+
+.navigation .gmail:hover {
+  border-bottom: 1px white solid;
+  box-sizing: border-box;
+}
+
 .navigation .picture {
   font-size: 13px;
   font-family: Roboto, Arial, sans-serif;

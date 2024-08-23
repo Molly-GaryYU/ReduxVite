@@ -10,6 +10,15 @@ const SearchContent: React.FC = () => {
       <div className="searchArea">
         <SearchForm />
         <SearchButton />
+        <div className="language">
+          Google 提供：
+          <a className="change pd" href="*">
+            繁體中文
+          </a>
+          <a className="change" href="*">
+            English
+          </a>
+        </div>
       </div>
     </div>
   );

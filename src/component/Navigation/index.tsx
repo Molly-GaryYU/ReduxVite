@@ -73,6 +73,9 @@ export default function NavContent() {
   };
   return (
     <div className="navigation">
+      <a className="gmail" href="/#">
+        Gmail
+      </a>
       <a className="picture" href="/#">
         图片
       </a>

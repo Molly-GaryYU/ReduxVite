@@ -224,25 +224,47 @@
         color: #e8eaed;
         font-family: Arial, sans-serif;
         font-size: 14px;
-        margin: 11px 4px;
-        margin-right: 4px;
+        margin-top: 3px;
         line-height: 27px;
         height: 36px;
         cursor: pointer;
       }
       .googleButton {
         margin-right: 6px;
-        padding: 0px 16px 0 16px;
+        padding: 0px 16px 0 15.5px;
       }
       .luckyButton {
         margin-left: 6px;
-        padding: 0px 20px 0 20px;
+        padding: 0px 19.5px 0 20px;
       }
       .buttonBorder {
         border: 1px solid #303134;
       }
       .buttonBorderHover {
         border: 1px solid #5f6368;
+      }
+    }
+    .language {
+      color: #bfbfbf;
+      display: flex;
+      line-height: 28px;
+      font-size: small;
+      margin-top: 12px;
+      font-family: Arial, sans-serif;
+      .pd {
+        padding: 0 0px;
+      }
+      .change {
+        color: #99c3ff;
+        text-decoration: none;
+        padding: 0 2.9px;
+        cursor: pointer;
+        height: 22px;
+        margin-left: 4px;
+        &:hover {
+          box-sizing: border-box;
+          border-bottom: 1px solid #99c3ff;
+        }
       }
     }
     .formBackground {
